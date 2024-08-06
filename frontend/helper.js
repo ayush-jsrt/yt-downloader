@@ -8,6 +8,7 @@ async function helper () {
         if (req.readyState === 4 && req.status === 200) {
             const res = req.response;
             console.log(res);
+            combineMedia(res.audio, res.video);
         }
     }
 

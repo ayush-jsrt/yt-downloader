@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YT-downloader</title>
-    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.0/dist/ffmpeg.min.js"></script>
 </head>
 
 <body>
     <input id="yt-link" type="text">
     <button onclick="helper()">Download</button>
+  <div id="loading" style="display: none;">Processing...</div>
+
     <script src="helper.js"></script>
+    <script src="ffmpeg_combiner.js"></script>
 </body>
 
 </html>

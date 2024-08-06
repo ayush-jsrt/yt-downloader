@@ -20,7 +20,14 @@ app.get('/download', async (req, res) => {
   }
 
   try {
-    const info = await ytDlpWrap.getVideoInfo(url);
+    const output = await ytDlpWrap.execPromise([
+      url,
+      '--no-check-certificates',
+      '-f', 'bestaudio+bestvideo',
+      '--print-json',
+      '--no-playlist'
+    ]);
+    const info = JSON.parse(output);
     console.log(info.formats);
 
     const filteredFormats = info.formats.filter(f => f.format_id === '137' || f.format_id === '140');
