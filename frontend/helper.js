@@ -8,7 +8,7 @@ async function helper () {
         if (req.readyState === 4 && req.status === 200) {
             const res = req.response;
             console.log(res);
-            combineMedia(res.audio, res.video);
+            set_audio(res.audio);
         }
     }
 
@@ -17,4 +17,8 @@ async function helper () {
     req.send();
 
     return;
+}
+
+function set_audio(audio) {
+    document.getElementById('audio').src = audio;
 }
